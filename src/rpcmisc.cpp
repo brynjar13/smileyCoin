@@ -107,6 +107,17 @@ Value getinfo(const Array& params, bool fHelp)
     return obj;
 }
 
+Value answerquestion(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+	    throw runtime_error("answerquestion\n"
+			        "Answers any question with either yes or no.\n"
+				);
+    string question = params[0].get_str();
+    int random = rand() % 2;
+    string answer = (random == 0) ? "no" : "yes";
+    return answer;
+}
 
 Value getrichaddresses(const Array& params, bool fHelp)
 {
